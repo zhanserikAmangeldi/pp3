@@ -25,5 +25,29 @@ def recursive_binary_search(list,start, end, x):
             return recursive_binary_search(list,mid + 1, end, x)
     else:
         return None
-S= [x for x in range(30, 100000)]
-print(recursive_binary_search(S,0, len(S) - 1, 33))
+
+def selection_sort(list, n):
+    for i in range(0, n-1):
+        smallest = i
+        for j in range(i+1, n):
+            if list[j] < list[smallest]:
+                smallest = j
+                list[i], list[smallest] = list[smallest], list[i]
+    return list
+
+
+def insertion_sort(list, n):
+    for i in range(1,n):
+        j = i
+        while j>0 and list[j - 1] > list[j]:
+            list[j],list[j-1] = list[j-1], list[j]
+            j -= 1
+    return list
+
+
+
+print(insertion_sort([3,2,5,6,54,2,35,1,5,3,54,3,2,4,7,9], len([3,2,5,6,54,2,35,1,5,3,54,3,2,4,7,9])))
+
+
+# S= [x for x in range(30, 100000)]
+# print(recursive_binary_search(S,0, len(S) - 1, 33))
